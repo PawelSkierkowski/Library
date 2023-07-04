@@ -62,6 +62,32 @@
 					"response": []
 				},
 				{
+					"name": "ByTextInBooksDescription",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5041/api/search?$filter=contains(Description, 'science FICTION novel')",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5041",
+							"path": [
+								"api",
+								"search"
+							],
+							"query": [
+								{
+									"key": "$filter",
+									"value": "contains(Description, 'science FICTION novel')"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "ByUserCurrentlyHolding",
 					"request": {
 						"method": "GET",
@@ -93,7 +119,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5041/api/search?$filter=AuthorFirstName eq 'Edgar' AND UserLastName eq 'Hetfield' OR contains(Title, 'ola')",
+							"raw": "http://localhost:5041/api/search?$filter=(AuthorFirstName eq 'Edgar' AND UserLastName eq 'Hetfield' OR contains(Title, 'ola')) AND contains(Description, 'science FICTION novel')",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -106,7 +132,7 @@
 							"query": [
 								{
 									"key": "$filter",
-									"value": "AuthorFirstName eq 'Edgar' AND UserLastName eq 'Hetfield' OR contains(Title, 'ola')"
+									"value": "(AuthorFirstName eq 'Edgar' AND UserLastName eq 'Hetfield' OR contains(Title, 'ola')) AND contains(Description, 'science FICTION novel')"
 								}
 							]
 						}
