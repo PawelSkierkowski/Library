@@ -1,0 +1,160 @@
+{
+	"info": {
+		"_postman_id": "607b862f-d980-4c79-9555-5bc1ae123c80",
+		"name": "LibraryRequests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2002736"
+	},
+	"item": [
+		{
+			"name": "Search",
+			"item": [
+				{
+					"name": "ByAuthor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5041/api/search?$filter=AuthorFirstName eq 'Jorge'",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5041",
+							"path": [
+								"api",
+								"search"
+							],
+							"query": [
+								{
+									"key": "$filter",
+									"value": "AuthorFirstName eq 'Jorge'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ByTextInBooksTitle",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5041/api/search?$filter=contains(Title, 'ola')",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5041",
+							"path": [
+								"api",
+								"search"
+							],
+							"query": [
+								{
+									"key": "$filter",
+									"value": "contains(Title, 'ola')"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ByUserCurrentlyHolding",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5041/api/search?$filter=UserLastName eq 'Hetfield'",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5041",
+							"path": [
+								"api",
+								"search"
+							],
+							"query": [
+								{
+									"key": "$filter",
+									"value": "UserLastName eq 'Hetfield'"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ByMultiple",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5041/api/search?$filter=AuthorFirstName eq 'Edgar' AND UserLastName eq 'Hetfield' OR contains(Title, 'ola')",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5041",
+							"path": [
+								"api",
+								"search"
+							],
+							"query": [
+								{
+									"key": "$filter",
+									"value": "AuthorFirstName eq 'Edgar' AND UserLastName eq 'Hetfield' OR contains(Title, 'ola')"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "InvertWords",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5041/api/invertWords/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5041",
+					"path": [
+						"api",
+						"invertWords",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Report",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5041/api/report",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5041",
+					"path": [
+						"api",
+						"report"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
