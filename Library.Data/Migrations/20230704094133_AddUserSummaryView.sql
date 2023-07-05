@@ -1,4 +1,5 @@
 CREATE VIEW UserSummaryView AS
+
 SELECT totalBooks.*,
        totalDays.totaldays
 FROM   (SELECT u.[id]          AS UserId,
@@ -19,12 +20,10 @@ FROM   (SELECT u.[id]          AS UserId,
                                  t1.datetaken,
                                  t1.dateback,
                                  CASE
-                                   WHEN t1.dateback > COALESCE(Greatest(
-                                                      Max(t2.dateback),
-                                                               t1.datetaken),
+                                   WHEN t1.dateback > COALESCE(case when Max(t2.dateback) > t1.datetaken then Max(t2.dateback) else t1.datetaken end,
                                                       t1.datetaken) THEN
                                    Datediff(d, t1.dateback, COALESCE(
-                                   Greatest(Max(t2.dateback), t1.datetaken),
+                                   case when Max(t2.dateback) > t1.datetaken then Max(t2.dateback) else t1.datetaken end,
                                  t1.datetaken))
                                    ELSE 0
                                  END AS daysCount
